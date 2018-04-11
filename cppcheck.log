@@ -1,0 +1,24 @@
+[/home/fexolm/git/SLama/src/block.c:13]: (portability) 'mem' is of type 'void *'. When using void pointers in calculations, the behaviour is undefined.
+[/home/fexolm/git/SLama/tests/block-test.c:15] -> [/home/fexolm/git/SLama/tests/block-test.c:16]: (style) Variable 'block' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/block-test.c:30] -> [/home/fexolm/git/SLama/tests/block-test.c:33]: (style) Variable 'block' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/block-test.c:31] -> [/home/fexolm/git/SLama/tests/block-test.c:35]: (style) Variable 'block2' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/block-test.c:55] -> [/home/fexolm/git/SLama/tests/block-test.c:58]: (style) Variable 'block' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/block-test.c:79] -> [/home/fexolm/git/SLama/tests/block-test.c:82]: (style) Variable 'block' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/block-test.c:80] -> [/home/fexolm/git/SLama/tests/block-test.c:83]: (style) Variable 'block2' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:16] -> [/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:20]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:17] -> [/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:21]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:51] -> [/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:55]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:52] -> [/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:56]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:86] -> [/home/fexolm/git/SLama/tests/matrix-base-algo-test.c:87]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matmul-test.c:15] -> [/home/fexolm/git/SLama/tests/matmul-test.c:19]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matmul-test.c:16] -> [/home/fexolm/git/SLama/tests/matmul-test.c:20]: (style) Variable 'matrix2' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/matmul-test.c:17] -> [/home/fexolm/git/SLama/tests/matmul-test.c:56]: (style) Variable 'result' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:15] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:16]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:27] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:29]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:28] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:35]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:46] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:48]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:47] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:49]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:65] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:66]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:83] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:86]: (style) Variable 'matrix' is reassigned a value before the old one has been used.
+[/home/fexolm/git/SLama/tests/base-matrix-test.c:84] -> [/home/fexolm/git/SLama/tests/base-matrix-test.c:90]: (style) Variable 'matrix1' is reassigned a value before the old one has been used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)
