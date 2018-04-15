@@ -33,10 +33,10 @@ func (m cppcheck) parse(filename string) []warningInfo {
 			continue
 		}
 		warns = append(warns, warningInfo{
-			file:    m[1],
-			lines:   m[2] + "-" + m[3],
-			kind:    m[4],
-			message: m[5],
+			File:    m[1],
+			Lines:   m[2] + "-" + m[3],
+			Kind:    m[4],
+			Message: m[5],
 		})
 	}
 	return warns

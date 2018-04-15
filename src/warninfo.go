@@ -1,14 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type warningInfo struct {
-	kind    string
-	file    string
-	lines   string
-	message string
+	Kind    string `json:"kind"`
+	File    string `json:"file"`
+	Lines   string `json:"lines"`
+	Message string `json:"message"`
 }
 
 func (w warningInfo) String() string {
-	return fmt.Sprintf("(%s) %s [%s]: %s", w.kind, w.file, w.lines, w.message)
+	return fmt.Sprintf("(%s) %s [%s]: %s", w.Kind, w.File, w.Lines, w.Message)
 }
