@@ -9,8 +9,8 @@ import (
 
 type cppcheck struct{}
 
-func (m cppcheck) parse(filename string) []warningInfo {
-	data, err := ioutil.ReadFile(filename)
+func (m cppcheck) warnings() []warningInfo {
+	data, err := ioutil.ReadFile(cfg.CppCheck.InputFile)
 
 	if err != nil {
 		log.Fatal(err)
@@ -37,6 +37,7 @@ func (m cppcheck) parse(filename string) []warningInfo {
 			Lines:   m[2] + "-" + m[3],
 			Kind:    m[4],
 			Message: m[5],
+			Module:  "cppcheck",
 		})
 	}
 	return warns

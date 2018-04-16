@@ -9,6 +9,7 @@ type warningInfo struct {
 	File    string `json:"file"`
 	Lines   string `json:"lines"`
 	Message string `json:"message"`
+	Module  string `json:"module"`
 }
 
 func (w warningInfo) String() string {
