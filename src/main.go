@@ -13,7 +13,7 @@ import (
 )
 
 var args struct {
-	Debug   bool     `arg:"-d" help:"debug mode (full verbose without network connection)"`
+	Debug   bool     `arg:"-d" help:"debug mode"`
 	Verbose bool     `arg:"-v" help:"verbose mode"`
 	Config  string   `arg:"-c" help:"set path for config file"`
 	APIkey  string   `arg:"env"`
@@ -23,7 +23,7 @@ var args struct {
 
 var cfg struct {
 	CppCheck struct {
-		InputFile string `yaml:"inputfile"`
+		CompileCommands string `yaml:"compile-commands"`
 	}
 }
 
@@ -45,7 +45,10 @@ func postResult(json []byte) {
 
 	fmt.Println("response Status:", resp.Status)
 	fmt.Println("response Headers:", resp.Header)
-	body, _ := ioutil.ReadAll(resp.Body)
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println("response Body:", string(body))
 }
 

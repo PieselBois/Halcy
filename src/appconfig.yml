@@ -1,2 +1,2 @@
 cppcheck:
-  inputfile: "../cppcheck.log"
+  compile-commands: "/home/fexolm/git/SLama/cmake-build-debug/compile_commands.json"

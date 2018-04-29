@@ -1,8 +1,9 @@
 package main
 
 import (
-	"io/ioutil"
+	"fmt"
 	"log"
+	"os/exec"
 	"regexp"
 	"strings"
 )
@@ -10,18 +11,25 @@ import (
 type cppcheck struct{}
 
 func (m cppcheck) warnings() []warningInfo {
-	data, err := ioutil.ReadFile(cfg.CppCheck.InputFile)
+	// data, err := ioutil.ReadFile(cfg.CppCheck.InputFile)
+
+	c := exec.Command("cppcheck",
+		fmt.Sprintf("--project=%s", cfg.CppCheck.CompileCommands),
+		"--enable=all", "-q")
+	out, err := c.CombinedOutput()
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	text := string(data)
+	text := string(out)
 
 	lines := strings.Split(text, "\n")
 
-	r1 := regexp.MustCompile(`\[([/\w-.]+):(\d+)\].*\[.*:(\d+)\]:\s\((\w+)\)\s(.*)`)
-	r2 := regexp.MustCompile(`\[([/\w-.]+):(\d+)\]:\s\((\w+)\)\s(.*)`)
+	r1 := regexp.MustCompile(
+		`\[([/\w-.]+):(\d+)\].*\[.*:(\d+)\]:\s\((\w+)\)\s(.*)`)
+	r2 := regexp.MustCompile(
+		`\[([/\w-.]+):(\d+)\]:\s\((\w+)\)\s(.*)`)
 
 	warns := make([]warningInfo, 0, len(lines))
 
