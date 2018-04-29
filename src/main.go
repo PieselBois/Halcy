@@ -13,43 +13,18 @@ import (
 )
 
 var args struct {
-	Debug   bool     `arg:"-d" help:"debug mode"`
-	Verbose bool     `arg:"-v" help:"verbose mode"`
-	Config  string   `arg:"-c" help:"set path for config file"`
-	APIkey  string   `arg:"env"`
-	Modules []string `arg:"-m" help:"set modules to load"`
-	URL     string   `arg:"-u" help:"set server url"`
+	LocalRun bool     `arg:"-l" help:"local run"`
+	Verbose  bool     `arg:"-v" help:"verbose mode"`
+	Config   string   `arg:"-c" help:"set path for config file"`
+	APIkey   string   `arg:"env"`
+	Modules  []string `arg:"-m" help:"set modules to load"`
 }
 
 var cfg struct {
+	URL      string `yaml:"url"`
 	CppCheck struct {
 		CompileCommands string `yaml:"compile-commands"`
 	}
-}
-
-func postResult(json []byte) {
-
-	req, err := http.NewRequest("POST", args.URL, bytes.NewBuffer(json))
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	req.Header.Set("Content-Type", "applcation/json")
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer resp.Body.Close()
-
-	fmt.Println("response Status:", resp.Status)
-	fmt.Println("response Headers:", resp.Header)
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("response Body:", string(body))
 }
 
 func main() {
@@ -80,10 +55,34 @@ func main() {
 	}
 	j, _ := json.Marshal(warns)
 
-	if args.Debug {
+	if args.LocalRun {
 		fmt.Println(string(j))
 	} else {
 		postResult(j)
 	}
 
+}
+
+func postResult(json []byte) {
+	req, err := http.NewRequest("POST", cfg.URL, bytes.NewBuffer(json))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	req.Header.Set("Content-Type", "applcation/json")
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	fmt.Println("response Status:", resp.Status)
+	fmt.Println("response Headers:", resp.Header)
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("response Body:", string(body))
 }

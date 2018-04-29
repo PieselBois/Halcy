@@ -14,7 +14,7 @@
             "host": "127.0.0.1",
             "program": "${fileDirname}",
             "env": {},
-            "args": ["-d", "--modules", "cppcheck", "-c", "appconfig.yml"],
+            "args": ["-l", "--modules", "cppcheck", "-c", "appconfig.yml"],
             "showLog": true
         }
     ]
